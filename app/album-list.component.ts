@@ -14,6 +14,7 @@ import { CheckoutPipe } from './checkout.pipe';
   pipes: [GenrePipe, ArtistPipe, CheckoutPipe],
   template:
   `
+  <p>Filter Albums by Genre</p>
   <select (change)="onChange($event.target.value)">
     <option value="all" selected="selected">All Genres</option>
     <option value="Pop">Pop</option>
@@ -23,6 +24,9 @@ import { CheckoutPipe } from './checkout.pipe';
   <p>Search Albums by Artists</p>
   <input value="all" #artistName>
   <button (click)="showAlbum(artistName)">Search</button>
+  <div *ngIf="(albumList | artist: filterArtist).length === 0">
+  Sorry, your search returned no matches. 
+  </div>
   <album-display *ngFor = "#currentAlbum of albumList | genre:filterGenre | artist:filterArtist" [album]="currentAlbum"></album-display>
   <hr>
   <h1>Shopping Cart</h1>

@@ -3,7 +3,7 @@ import { Album } from './album.model';
 
 @Pipe({
   name: "artist",
-  
+
 })
 export class ArtistPipe implements PipeTransform{
   transform(input: Album[], args) {
@@ -12,7 +12,7 @@ export class ArtistPipe implements PipeTransform{
       return input;
     } else {
       return input.filter(function(album){
-        return (album.artist === desiredArtist);
+          return (album.artist === desiredArtist);
       });
     }
   }

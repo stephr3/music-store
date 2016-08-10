@@ -6,7 +6,7 @@ import {Album} from './album.model';
   selector: 'total-price',
   inputs: ['total'],
   template:`
-  <h3>Your Total is: {{total}}</h3>
+  <h3>Your Total is: \${{total.toFixed(2)}}</h3>
   `
 })
 export class TotalPriceComponent {

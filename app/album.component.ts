@@ -8,7 +8,6 @@ import { Album } from './album.model';
     <input *ngIf="album.checkout" type="checkbox" checked (click)="toggleCheckout(false)"/>
     <input *ngIf="!album.checkout" type="checkbox" (click)="toggleCheckout(true)"/>
     <label><h3>"{{album.title}}" by {{album.artist}} | {{album.genre}} | \${{(album.price).toFixed(2)}}</h3></label>
-
   </div>
   `
 })
