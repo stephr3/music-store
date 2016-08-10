@@ -31,6 +31,9 @@ import { CheckoutPipe } from './checkout.pipe';
   <album-display *ngFor = "#currentAlbum of albumList | genre:filterGenre | artist:filterArtist" [album]="currentAlbum"></album-display>
   <hr>
   <h1>Shopping Cart</h1>
+  <div *ngIf="(albumList | checkout: filterCheckout).length === 0">
+  There are no items in your cart.
+  </div>
   <shopping-cart *ngFor = "#checkoutAlbum of albumList | checkout:filterCheckout" [album]="checkoutAlbum" ></shopping-cart>
   <button (click)="calculateTotal(albumList)">My Total</button>
   <total-price [total]="totalPrice" ></total-price>
