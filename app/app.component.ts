@@ -1,11 +1,13 @@
 import { Component } from 'angular2/core';
+import { AlbumListComponent } from './album-list.component';
 import { Album } from './album.model';
 @Component({
   selector: 'my-app',
+  directives: [AlbumListComponent],
   template: `
     <div class="container">
       <h1>Music Store</h1>
-      <h3 *ngFor="#album of albums">"{{album.title}}" by {{album.artist}} | {{album.genre}} | \${{(album.price).toFixed(2)}}</h3>
+      <album-list [albumList]="albums"></album-list>
     </div>
   `
 })
