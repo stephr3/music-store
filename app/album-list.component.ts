@@ -1,6 +1,7 @@
 import { Component } from 'angular2/core';
 import { AlbumComponent } from './album.component';
 import { ShoppingCartComponent } from './shopping-cart.component';
+import { TotalPriceComponent} from './total-price.component';
 import { Album } from './album.model';
 import { GenrePipe } from './genre.pipe';
 import { ArtistPipe } from './artist.pipe';
@@ -9,7 +10,7 @@ import { CheckoutPipe } from './checkout.pipe';
 @Component({
   selector: 'album-list',
   inputs: ['albumList'],
-  directives: [AlbumComponent, ShoppingCartComponent],
+  directives: [AlbumComponent, ShoppingCartComponent, TotalPriceComponent],
   pipes: [GenrePipe, ArtistPipe, CheckoutPipe],
   template:
   `
@@ -25,8 +26,10 @@ import { CheckoutPipe } from './checkout.pipe';
   <album-display *ngFor = "#currentAlbum of albumList | genre:filterGenre | artist:filterArtist" [album]="currentAlbum"></album-display>
   <hr>
   <h1>Shopping Cart</h1>
-  <shopping-cart *ngFor = "#checkoutAlbum of albumList | checkout:filterCheckout" [album]="checkoutAlbum"></shopping-cart>
-  `
+  <shopping-cart *ngFor = "#checkoutAlbum of albumList | checkout:filterCheckout" [album]="checkoutAlbum" ></shopping-cart>
+  <button (click)="calculateTotal(albumList)">My Total</button>
+  <total-price [total]="totalPrice" ></total-price>
+    `
 })
 
 export class AlbumListComponent {
@@ -34,6 +37,8 @@ export class AlbumListComponent {
   public filterGenre: string = "all";
   public filterArtist: string = "all";
   public filterCheckout: string = "checkout";
+  public totalPrice: number = 0;
+
 
   onChange(filterOption){
     this.filterGenre = filterOption;
@@ -41,6 +46,19 @@ export class AlbumListComponent {
   showAlbum(filterOption: HTMLInputElement){
     this.filterArtist = filterOption.value;
     filterOption.value = "all";
-
   }
+  calculateTotal(albumList){
+    this.totalPrice =0;
+    for (var i=0; i<albumList.length; i++)
+    {
+      console.log(albumList[i].checkout);
+      if(albumList[i].checkout){
+        this.totalPrice += albumList[i].price;
+
+      }
+    }
+  }
+
+  //calculate total function here - totalPrice
+
 }

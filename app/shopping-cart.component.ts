@@ -9,5 +9,5 @@ import { Album } from './album.model';
   `
 })
 export class ShoppingCartComponent{
-  public album: Album;
+
 }
