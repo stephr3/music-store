@@ -24,8 +24,9 @@ import { CheckoutPipe } from './checkout.pipe';
   <p>Search Albums by Artists</p>
   <input value="all" #artistName>
   <button (click)="showAlbum(artistName)">Search</button>
+  <button (click)="showAllAlbums()">View All Albums</button>
   <div *ngIf="(albumList | artist: filterArtist).length === 0">
-  Sorry, your search returned no matches. 
+  Sorry, your search returned no matches.
   </div>
   <album-display *ngFor = "#currentAlbum of albumList | genre:filterGenre | artist:filterArtist" [album]="currentAlbum"></album-display>
   <hr>
@@ -50,6 +51,9 @@ export class AlbumListComponent {
   showAlbum(filterOption: HTMLInputElement){
     this.filterArtist = filterOption.value;
     filterOption.value = "all";
+  }
+  showAllAlbums(){
+    this.filterArtist = "all";
   }
   calculateTotal(albumList){
     this.totalPrice =0;
