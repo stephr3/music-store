@@ -16,7 +16,7 @@ Installation
 ------------
 Clone Github Repository:
 ```
-$ git clone https://github.com/stephr3/meal-tracker.git
+$ git clone https://github.com/stephr3/music-store.git
 ```
 Install NPM dependencies:
 ```
