@@ -1,24 +1,42 @@
-* As the owner of this CD store, I want to display each album that is for sale with its name, artist, price and genre.
-* I would like to be able to display only the albums belonging to a particular genre.
-* I would also like to display only the albums belonging to a particular artist.
-* I would like my users to be able to click a checkbox on each album to either add or remove the item to the shopping cart area of the page.
-* I would like my shopping cart to display the total price of all the albums I have decided to buy.
+# CD Store
+## *By Stephanie Gurung & Bhawani Parajuli*
 
+##### *A music store app to keep track of inventory.*
 
+## Technologies Used
 
-Restaurant Reviews
-Create an app where a user can upload a description of a restaurant and then other users can rate it by submitting a form.
+* Angular2<br>
+* TypeScript<br>
+* Node JS<br>
+* Gulp<br>
+* Bower<br>
+* Bootstrap
 
-A restaurant should include:
+Installation
+------------
+Clone Github Repository:
+```
+$ git clone https://github.com/stephr3/meal-tracker.git
+```
+Install NPM dependencies:
+```
+$ npm install
+```
+Install Bower dependencies:
+```
+$ bower install
+```
+Build the project:
+```
+$ gulp build
+```
+Boot up the server in your browser of choice:
+```
+$ gulp serve
+```
 
-name
-specialty (italian, mexican, etc.)
-address
-an estimate of how expensive it is (this could be from one to five dollar signs, or just a string such as "cheap", "moderate", "expensive".
-When a user rates it, they should enter a value from 1 to 5 stars and the amount of time that they had to wait for their food.
+License
+-------
+_This software is licensed under the MIT license._<br>
+Copyright (c) 2016 **Stephanie Gurung & Bhawani Parajuli**
 
-As a user, I want to see a list of all the available restaurant names.
-When I click on a restaurant I want to see the other details about it.
-I would like to see only the restaurants of a particular specialty.
-As a user, I want to be able to edit a restaurant record.
-As a user, I want to see the average wait time for each restaurant and the average rating.
